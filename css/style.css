@@ -1,0 +1,106 @@
+.carousel-item{
+    width: 1905px;
+    height: 300px;
+}
+
+h1{
+    text-align: center;
+    font-family: "Edu NSW ACT Hand Pre", cursive;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgba(119, 17, 56, 0.678);
+}
+
+h2{
+    text-align: center;
+    font-family: "Edu NSW ACT Hand Pre", cursive;
+    padding-top: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: rgba(119, 17, 56, 0.678);
+}
+
+body {
+    background-color: rgba(126, 84, 89, 0.719);
+    background: linear-gradient(to bottom, #77ff953a, #572a6977, #ff44d654);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+}
+
+section{
+    background-color: rgba(189, 170, 107, 0.651);
+    background: linear-gradient(to right, #63489659, #b42f9346);
+    margin: 10px;
+}
+
+section:hover{
+    background-color: rgb(218, 196, 133);
+
+}
+
+.contenedorCards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .contenedorCards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 8px;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+    }
+}
+
+.card {
+    background-color: #ffe8c9;
+    width: 256px;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.card img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer{
+    padding: 50px;
+    text-align: center;
+}
+
+footer a{
+    background-color: #ffe1b9;
+    padding: 25px;
+    text-align: center;
+}
+
+footer a:hover{
+    background-color: rgb(255, 223, 135);
+}
+
+main .div5{
+    align-items: center;
+}
+
+header{grid-area: 1/1/2/4;}
+main{grid-area: 2/2/3/3;}
+footer{grid-area: 3/1/4/4;}
+
+.parent {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+}
