@@ -1,0 +1,204 @@
+
+
+
+.carousel-item{
+    width: 1905px;
+    height: 300px;
+}
+
+h1{
+    text-align: center;
+    font-family: "Edu NSW ACT Hand Pre", cursive;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgba(119, 17, 56, 0.678);
+}
+
+h2{
+    text-align: center;
+    font-family: "Edu NSW ACT Hand Pre", cursive;
+    padding-top: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: rgba(119, 17, 56, 0.678);
+}
+
+/* ESTILOS DE ESCRITORIO (BASE) */
+body {
+    background-color: rgba(126, 84, 89, 0.719);
+    background: linear-gradient(to bottom, #77ff953a, #572a6977, #ff44d654);
+    display: grid;
+    /* La cuadrícula principal es de 3 columnas para el diseño de escritorio */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+    display: contents; /* Permite que los hijos de main (las sections y el carrito) se posicionen en la cuadrícula del body */
+}
+
+/* Aplicando el carrito en la cuadrícula de 3 columnas */
+#carrito-summary {
+    grid-column: 2 / 3; /* Centrar en la columna del medio */
+    margin: 20px auto; 
+    width: 90%; 
+    max-width: 400px; /* Limitar el ancho en desktop */
+}
+
+section{
+    background-color: rgba(189, 170, 107, 0.651);
+    background: linear-gradient(to right, #63489659, #b42f9346);
+    margin: 10px;
+    grid-column: 1 / 4; /* Las secciones ocupan todo el ancho */
+}
+
+section:hover{
+    background-color: rgb(218, 196, 133);
+}
+
+.contenedorCards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+}
+
+.card {
+    background-color: #ffe1b9;
+    border: solid #771138 2px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px; /* Tamaño base para desktop */
+    height: auto;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.card h3 {
+    margin-top: 10px;
+    color: #771138;
+}
+
+.card p {
+    color: #333;
+    font-size: 0.9em;
+}
+
+.card button {
+    background-color: #771138;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #5d0c2e;
+}
+
+.div1 { 
+    grid-area: header; 
+}
+
+.div2 { 
+    grid-area: footer; 
+    padding: 50px;
+    text-align: center;
+}
+
+.div2 a{
+    background-color: #ffe1b9;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #771138;
+}
+
+.div2 a:hover{
+    background-color: rgb(255, 223, 135);
+}
+
+
+/* ============================================== */
+/*          MEDIA QUERIES (RESPONSIVE)            */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Ajustar el Body a una sola columna */
+    body {
+        /* Sobrescribe la cuadrícula de 3 columnas de escritorio */
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+        /* Reorganiza las áreas en orden vertical */
+        grid-template-areas: 
+            "header"
+            "main"
+            "carrito"
+            "footer";
+    }
+
+    /* 2. Posicionar los elementos en la nueva cuadrícula */
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        /* Volver a usar 'block' o 'normal' flujo para móviles */
+        display: block; 
+        padding: 0 10px;
+    }
+    
+    /* El carrito ahora va debajo del contenido principal */
+    #carrito-summary {
+        grid-area: carrito;
+        width: 95%; 
+        margin: 20px auto; 
+    }
+    
+    section {
+        grid-column: auto; /* Ya no es necesario ocupar 3 columnas */
+        margin: 10px 0;
+    }
+
+    /* 3. Ajustar las tarjetas individualmente para 2 columnas en tablets */
+    .contenedorCards {
+        justify-content: center;
+    }
+    
+    .card {
+        width: 45%; /* Dos tarjetas por fila en tablets */
+        max-width: 300px;
+    }
+    
+    .div2 { 
+        grid-area: footer; 
+    }
+}
+
+/* Media query para móviles muy pequeños */
+@media (max-width: 480px) {
+    .card {
+        width: 90%; /* Una tarjeta por fila */
+    }
+}
